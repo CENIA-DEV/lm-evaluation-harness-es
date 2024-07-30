@@ -10,6 +10,38 @@ Con el fin de facilitar el proceso de evaluación de datasets y capacidades de d
 
 ## ¿Cómo utilizarlo?
 
+Las pruebas estándares pueden fácilmente ser accedidas mediante nuestro `Makefile`.
+
+### Ejecutar pruebas
+
+Para ejecutar pruebas específicas, puedes utilizar el Makefile proporcionado. Aquí hay algunos ejemplos:
+
+- Probar Phi-2 con M-MMLU_es:
+```bash
+make test-phi-2-m-mmlu-es
+```
+
+- Probar Phi-3 con M-MMLU_es:
+```bash
+make test-phi-3-m-mmlu-es
+```
+
+### Editar donde guardar modelos
+
+Puedes especificar dónde guardar los modelos editando la variable CACHE_DIR en nuestro Makefile. Por ejemplo:
+
+```bash
+CACHE_DIR ?= /ruta/deseada/para/cache
+```
+
+Si no especificas un directorio, se usará el valor por defecto.
+
+Para ejecutar una prueba con un directorio de cache específico:
+
+```bash
+make test-phi-2-m-mmlu-es CACHE_DIR=/ruta/deseada/para/cache
+```
+
 ---
 
 # Language Model Evaluation Harness
