@@ -10,9 +10,8 @@ PHI_3=microsoft/Phi-3-mini-128k-instruct
 CACHE_DIR ?=
 
 # Define variable for the specific task and section
-TASK_M_MMLU_ES=m_mmlu_es
-TASK_TRUTHFULQA_ES_MC1=truthfulqa_es_mc1
-TASK_TRUTHFULQA_ES_MC2=truthfulqa_es_mc2
+TASK_MMLU_ES=m_mmlu_es
+TASK_HELLASWAG_ES=latam_hellaswag
 
 # Conditional to include cache_dir if set
 ifdef CACHE_DIR
@@ -22,15 +21,23 @@ CACHE_ARG=
 endif
 
 # Phony targets to avoid conflicts with files of the same name
-.PHONY: all test-phi-2-m-mmlu-es test-phi-3-m-mmlu-es
+.PHONY: all test-phi-2-mmlu-es test-phi-3-mmlu-es
 
 # Default target
-all: test-phi-2-m-mmlu-es test-phi-3-m-mmlu-es
+all: test-phi-2-mmlu-es test-phi-3-mmlu-es
 
-# Target for testing phi-2 on MLQA Spanish section
-test-phi-2-m-mmlu-es:
-	lm_eval --model hf --model_args pretrained=$(PHI_2),$(CACHE_ARG) --tasks $(TASK_M_MMLU_ES) --device $(DEVICE) --batch_size $(BATCH_SIZE)
+# phi-2 on MMLU-ES
+test-phi-2-mmlu-es:
+	lm_eval --model hf --model_args pretrained=$(PHI_2),$(CACHE_ARG) --tasks $(TASK_MMLU_ES) --device $(DEVICE) --batch_size $(BATCH_SIZE)
 
-# Target for testing phi-3 on MLQA Spanish section
-test-phi-3-m-mmlu-es:
-	lm_eval --model hf --model_args pretrained=$(PHI_3),$(CACHE_ARG) --tasks $(TASK_M_MMLU_ES) --device $(DEVICE) --batch_size $(BATCH_SIZE)
+# phi-2 on HELLASWAG_ES
+test-phi-2-hellaswag-es:
+	lm_eval --model hf --model_args pretrained=$(PHI_2),$(CACHE_ARG) --tasks $(TASK_HELLASWAG_ES) --device $(DEVICE) --batch_size $(BATCH_SIZE)
+
+# phi-3 on MMLU-ES
+test-phi-3-mmlu-es:
+	lm_eval --model hf --model_args pretrained=$(PHI_3),trust_remote_code=True,$(CACHE_ARG) --tasks $(TASK_MMLU_ES) --device $(DEVICE) --batch_size $(BATCH_SIZE) --apply_chat_template
+
+# phi-3 on HELLASWAG_ES
+test-phi-3-hellaswag-es:
+	lm_eval --model hf --model_args pretrained=$(PHI_3),trust_remote_code=True,$(CACHE_ARG) --tasks $(TASK_HELLASWAG_ES) --device $(DEVICE) --batch_size $(BATCH_SIZE) --apply_chat_template

@@ -18,12 +18,12 @@ Para ejecutar pruebas específicas, puedes utilizar el Makefile proporcionado. A
 
 - Probar Phi-2 con M-MMLU_es:
 ```bash
-make test-phi-2-m-mmlu-es
+make test-phi-2-mmlu-es
 ```
 
 - Probar Phi-3 con M-MMLU_es:
 ```bash
-make test-phi-3-m-mmlu-es
+make test-phi-3-mmlu-es
 ```
 
 ### Editar donde guardar modelos
