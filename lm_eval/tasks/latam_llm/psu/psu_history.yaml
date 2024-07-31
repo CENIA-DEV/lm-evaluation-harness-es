@@ -1,0 +1,13 @@
+group: psu
+task: psu_historia
+dataset_path: ouhenio/psu
+dataset_name: default
+test_split: test_historia
+output_type: multiple_choice
+doc_to_text: "{{question.strip()}}\nA. {{option_a}}\nB. {{option_b}}\nC. {{option_c}}\nD. {{option_d}}\nRespuesta:"
+doc_to_choice: ["a", "b", "c", "d"]
+doc_to_target: answer
+metric_list:
+  - metric: acc
+metadata:
+  version: 0.1
