@@ -42,6 +42,15 @@ Para ejecutar una prueba con un directorio de cache específico:
 make test-phi-2-m-mmlu-es CACHE_DIR=/ruta/deseada/para/cache
 ```
 
+### Permisos Huggingface
+
+Para utilizar algunos modelos (por ejemplo Llama 2 y 3), es necesario loggearse previamente en Huggingface:
+
+```bash
+huggingface-cli login
+```
+
+
 ---
 
 # Language Model Evaluation Harness
