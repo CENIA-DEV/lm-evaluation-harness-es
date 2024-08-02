@@ -6,6 +6,7 @@ from lm_eval.api.registry import register_model
 from lm_eval.models.api_models import TemplateAPI
 from lm_eval.utils import eval_logger
 
+from dotenv import load_dotenv
 
 @register_model("local-completions")
 class LocalCompletionsAPI(TemplateAPI):
@@ -84,6 +85,7 @@ class LocalCompletionsAPI(TemplateAPI):
 
     @property
     def api_key(self):
+        load_dotenv()
         return os.environ.get("OPENAI_API_KEY", "")
 
 
@@ -168,6 +170,7 @@ class OpenAICompletionsAPI(LocalCompletionsAPI):
     @cached_property
     def api_key(self):
         """Override this property to return the API key for the API request."""
+        load_dotenv()
         key = os.environ.get("OPENAI_API_KEY", None)
         if key is None:
             raise ValueError(
@@ -201,6 +204,7 @@ class OpenAIChatCompletion(LocalChatCompletion):
     @cached_property
     def api_key(self):
         """Override this property to return the API key for the API request."""
+        load_dotenv()
         key = os.environ.get("OPENAI_API_KEY", None)
         if key is None:
             raise ValueError(

@@ -50,6 +50,13 @@ Para utilizar algunos modelos (por ejemplo Llama 2 y 3), es necesario loggearse 
 huggingface-cli login
 ```
 
+### OpenAI
+
+```bash
+pip install -e ."[api]"
+export OPENAI_API_KEY=tu_api_key
+```
+
 
 ---
 
