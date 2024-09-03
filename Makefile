@@ -2,7 +2,7 @@ DEVICE=cuda:0
 BATCH_SIZE=auto
 
 # models
-PHI_2=microsoft/phi-2
+PHI_2=/home/ouhenio/hf-llms/results/phi-2-continuation/checkpoint-5757
 PHI_3=microsoft/Phi-3-mini-128k-instruct
 LLAMA_2=meta-llama/Llama-2-7b-chat-hf
 LLAMA_3_1=meta-llama/Meta-Llama-3.1-8B-Instruct
