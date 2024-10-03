@@ -1,11 +1,9 @@
 group:
-  - mmlu_paes
-task: paes_historia
-dataset_path: Fuentes149/Paes-historia
-dataset_name: paes_historia
-training_split: train
-validation_split: val
-test_split: test
+  - paes
+task: paes_lenguaje
+dataset_path: Fuentes149/Paes-lenguaje
+dataset_name: default
+test_split: train
 output_type: multiple_choice
 doc_to_text: >
   {{question.strip()}}
