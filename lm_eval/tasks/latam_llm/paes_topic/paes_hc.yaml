@@ -1,10 +1,9 @@
-group:
-  - paes
-task: paes_historia
-dataset_path: Fuentes149/Paes-historia
+task: paes_historia_chile
+dataset_path: ouhenio/paes
 dataset_name: default
-test_split: train
+test_split: historia_chile
 output_type: multiple_choice
+process_docs: !function utils.process_docs
 doc_to_text: >
   {{question.strip()}}
   {{choices[0]}}
