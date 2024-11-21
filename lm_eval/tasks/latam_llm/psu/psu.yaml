@@ -1,0 +1,9 @@
+group: psu
+task:
+  - psu_lenguaje
+  - psu_historia
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+metadata:
+  version: 0.1
